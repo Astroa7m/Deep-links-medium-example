@@ -22,6 +22,22 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <intent-filter >
+                <category android:name="android.intent.category.DEFAULT" />
+<!--                adding browsable is necessary so the url could be added when we verify it manually-->
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <action android:name="android.intent.action.VIEW" />
+                <data
+                    android:host="@string/host"
+                    android:path="@string/path_to_existed_user"
+                    android:scheme="@string/scheme" />
+                <data android:host="@string/host"
+                    android:scheme="@string/scheme"
+                    android:path="@string/path_to_add_user"/>
+            </intent-filter>
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
