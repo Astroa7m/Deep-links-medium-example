@@ -25,7 +25,7 @@
 
             <intent-filter >
                 <category android:name="android.intent.category.DEFAULT" />
-<!--                adding browsable is necessary so the url could be added when we verify it manually-->
+            <!-- adding browsable and action.VIEW necessary so the url could be added when we verify it manually-->
                 <category android:name="android.intent.category.BROWSABLE"/>
 
                 <action android:name="android.intent.action.VIEW" />

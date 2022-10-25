@@ -52,13 +52,10 @@ object SharingUtil {
             val observer = LifecycleEventObserver { _, event ->
                 if (event == Lifecycle.Event.ON_RESUME) {
                     val userState = manager.getDomainVerificationUserState(context.packageName)
-                    val verifiedDomain =
-                        userState?.hostToStateMap?.filterValues { it == DomainVerificationUserState.DOMAIN_STATE_SELECTED }
                     val selectedDomains = userState?.hostToStateMap
                         ?.filterValues { it == DomainVerificationUserState.DOMAIN_STATE_SELECTED }
                     launchDialog =
-                        (verifiedDomain?.keys?.contains(domain) != true || selectedDomains?.keys?.contains(domain) != true)
-                                || userState.isLinkHandlingAllowed == false
+                        (selectedDomains?.keys?.contains(domain) != true) || userState.isLinkHandlingAllowed == false
                 }
             }
             lifecycleOwner.lifecycle.addObserver(observer)
